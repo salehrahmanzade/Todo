@@ -1,17 +1,17 @@
 import {OptionHttpObject} from "@/models/http";
 
 
-function fetchApi<T>(url: string, options: OptionHttpObject): Promise<T> {
+function fetchApi(url: string, options: any) {
     return fetch(url, options)
         .then(response => {
             if (!response.ok) {
                 throw new Error(response.statusText)
             }
-            return response.json() as Promise<T>
+            return response.json() as Promise<any>
         }).then((res) => res.data);
 }
 
-export default async function middlewareAuth(req) {
+export default async function middlewareAuth(req:any) {
     try {
 
         const options: OptionHttpObject = {
