@@ -19,7 +19,6 @@ export default function useAddTodo() {
 }
 
 export function useEditeTodo() {
-    const queryClient = useQueryClient();
 
     const {isPending: isCreating, mutate: createTodo} = useMutation({
         mutationFn: editTodoApi,
@@ -32,7 +31,6 @@ export function useEditeTodo() {
 }
 
 export function useDeleteTodo() {
-    const queryClient = useQueryClient();
 
     const {isPending: isPending, mutate: deleteTodo} = useMutation({
         mutationFn: deleteTodoApi,

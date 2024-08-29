@@ -9,7 +9,7 @@ export async function getAllTodoApi(queries, options = {}) {
         .then(({data}) => data.data);
 }
 
-export async function getPostById(id) {
+export async function getTodoById(id) {
     return http.get(`/post/${id}`).then(({data}) => data);
 }
 
@@ -27,22 +27,14 @@ export async function deleteTodoApi(id) {
         .then(({data}) => data.data);
 }
 
-export async function likePostApi(id) {
-    return http.post(`/post/like/${id}`).then(({data}) => data.data);
-}
 
-export async function bookmarkPostApi(id) {
-    return http.post(`/post/bookmark/${id}`).then(({data}) => data.data);
-}
 
 const todoApi = {
     getAllTodoApi,
-    getPostById,
+    getTodoById,
     createTodoApi,
     editTodoApi,
     deleteTodoApi,
-    likePostApi,
-    bookmarkPostApi,
 };
 
 export default todoApi;

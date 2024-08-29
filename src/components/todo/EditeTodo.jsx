@@ -64,7 +64,6 @@ const EditeTodo = ({onClose, postToEdit = {}}) => {
 
 
     const handleOnSubmit = async (getData) => {
-        console.log(getData)
         createTodo({id: editId, data: getData}, {
             onSuccess: () => {
                 reset();
@@ -100,9 +99,6 @@ const EditeTodo = ({onClose, postToEdit = {}}) => {
                             id={"category"}
                             {...register("category")}
                         >
-                            <option className="" value={"all"}>
-                                {"بدون دسته بندی"}
-                            </option>
                             {categories?.map((option) => (
                                 <option className="" key={option.value} value={option.value}>
                                     {option.label}
@@ -116,7 +112,6 @@ const EditeTodo = ({onClose, postToEdit = {}}) => {
                         label={"توضیحات :  (دلخواه)"}
                         name={"desc"}
                         register={register}
-                        required
                         errors={errors}
                     />
                 </div>

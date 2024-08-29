@@ -5,7 +5,6 @@ export async function middleware(req:any) {
     try {
         const url = req.url;
         const pathname = req.nextUrl.pathname;
-        // console.log({ pathname });
 
         if (pathname.startsWith("/signin") || pathname.startsWith("/signup")) {
             const user = await middlewareAuth(req);
@@ -15,7 +14,7 @@ export async function middleware(req:any) {
             }
         }
 
-        if (pathname.startsWith("/profile")) {
+        if (pathname.startsWith("/profile") ) {
             const user = await middlewareAuth(req);
 
             if (!user) {
@@ -31,5 +30,6 @@ export async function middleware(req:any) {
 }
 
 export const config = {
-    matcher: ["/profile/:path*", "/signin", "/signup"],
+    matcher: ["/profile/:path*","/signin", "/signup"],
 };
+

@@ -2,7 +2,7 @@ import axios from "axios";
 
 const app = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
-  withCredentials: true,
+    withCredentials: true,
 });
 
 app.interceptors.request.use(

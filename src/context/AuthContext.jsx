@@ -71,6 +71,7 @@ export default function AuthProvier({ children }) {
       dispatch({ type: "signin", payload: user });
       toast.success(message);
       router.push("/profile");
+      router.replace("/");
     } catch (err) {
       const error = err?.response?.data?.message;
       dispatch({ type: "rejected", payload: error });
@@ -86,7 +87,7 @@ export default function AuthProvier({ children }) {
       } = await signupApi(values);
       dispatch({ type: "signup", payload: user });
       toast.success(message);
-      router.push("/profile");
+      router.replace("/");
     } catch (err) {
       const error = err?.response?.data?.message;
       dispatch({ type: "rejected", payload: error });
@@ -97,9 +98,6 @@ export default function AuthProvier({ children }) {
   async function getUser() {
     dispatch({ type: "loading" });
     try {
-      // await new Promise((resolve, reject) =>
-      //   setTimeout(() => resolve("ddd"), 4000)
-      // );
       const {
         data: { user },
       } = await getUserApi();
@@ -114,7 +112,6 @@ export default function AuthProvier({ children }) {
     try {
       await logoutApi();
       router.push("/");
-      // document.location.href = "/";
       dispatch({ type: "logout" });
     } catch (error) {
       toast.error(error);

@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from 'react';
 
 export const useWithSound = (audioSource) => {
@@ -6,7 +5,7 @@ export const useWithSound = (audioSource) => {
 
     useEffect(() => {
         soundRef.current = new Audio(audioSource);
-    }, []);
+    }, [audioSource]);
 
     const playSound = () => {
         soundRef.current.play();
@@ -20,4 +19,3 @@ export const useWithSound = (audioSource) => {
         pauseSound,
     }
 }
-

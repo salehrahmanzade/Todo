@@ -2,15 +2,14 @@ import { getCategoryApi } from "@/services/categoryServie";
 import { useQuery } from "@tanstack/react-query";
 
 export default function useCategories() {
+
   const { data, isLoading } = useQuery({
     queryKey: ["categories"],
     queryFn: getCategoryApi,
   });
 
-  // {_id, title, enTitle, ....}
   const { categories: rawCategories = [] } = data || {};
 
-  // {value, label}
   const categories = rawCategories.map((item) => ({
     label: item.title,
     value: item._id,
