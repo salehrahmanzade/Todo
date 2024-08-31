@@ -27,8 +27,6 @@ const TodoItems = ({todo = {}}) => {
                 router.refresh();
             }
         });
-        setIsDelete(false);
-        router.refresh();
     }
     const handleChangeStatus = async () => {
         let doneStatus = todo.done;
