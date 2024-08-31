@@ -3,7 +3,7 @@
 import React, {useState} from 'react'
 import ConfirmDelete from "@/components/ui/ConfirmDelete";
 import Modal from "@/components/ui/Modal";
-import EditeTodo from "@/components/todo/editeTodo";
+import EditeTodo from "@/components/todo/EditeTodo";
 import {useDeleteTodo, useEditeTodo} from "@/hook/useAddTodo";
 import {useRouter} from "next/navigation";
 import Loading from "@/components/ui/Loading";
@@ -23,10 +23,12 @@ const TodoItems = ({todo = {}}) => {
     const handleDelete = async () => {
         deleteTodo(todo?._id, {
             onSuccess: () => {
-                router.refresh();
                 setIsDelete(false);
-            },
+                router.refresh();
+            }
         });
+        setIsDelete(false);
+        router.refresh();
     }
     const handleChangeStatus = async () => {
         let doneStatus = todo.done;

@@ -1,4 +1,4 @@
-import TodoItems from "@/components/todo/todoItems";
+import TodoItems from "@/components/todo/TodoItems";
 
 const TodoList = ({todos}) => {
     return (
