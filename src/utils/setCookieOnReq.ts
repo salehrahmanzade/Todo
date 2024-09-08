@@ -1,4 +1,4 @@
-import {OptionHttpObject} from "@/types/http";
+import {OptionHttpObject} from "@/types/Http";
 
 
 export default function setCookiesOnReq(cookies) {

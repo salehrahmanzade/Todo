@@ -1,5 +1,5 @@
 import Pagination from "@/components/ui/Pagination";
-import {getAllTodoApi} from "@/services/todoService";
+import {getAllTodoApi} from "@/httpServices/todoService";
 import setCookiesOnReq from "@/utils/setCookieOnReq";
 import {cookies} from "next/headers";
 import queryString from "query-string";

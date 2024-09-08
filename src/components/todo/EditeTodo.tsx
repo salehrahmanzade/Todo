@@ -7,6 +7,7 @@ import {useEditeTodo} from "@/hook/useAddTodo";
 import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import {TodoObject as TodoType, TodoCategoryObject as CategoryType} from "@/types/Todo"
 
 const schema = yup.object({
     value: yup
@@ -37,17 +38,17 @@ const EditeTodo = ({onClose, postToEdit = {}}) => {
 
     const router = useRouter();
 
-    const [todo, setTodo] = useState({
+    const [] = useState();
+
+    const [todo, setTodo] = useState<TodoType | null>({
         value: "",
         desc: "",
         done: false,
         category: "",
     });
 
-    const [isLoading, setIsloading] = useState(false);
-    const {categories} = useCategories();
+    const {categories}: { categories: CategoryType[] } = useCategories();
     const {createTodo, isCreating} = useEditeTodo();
-
 
     const {
         register,
@@ -99,7 +100,7 @@ const EditeTodo = ({onClose, postToEdit = {}}) => {
                             id={"category"}
                             {...register("category")}
                         >
-                            {categories?.map((option) => (
+                            {categories?.map((option: CategoryType) => (
                                 <option className="" key={option.value} value={option.value}>
                                     {option.label}
                                 </option>

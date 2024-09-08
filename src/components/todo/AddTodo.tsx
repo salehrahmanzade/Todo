@@ -1,7 +1,6 @@
 'use client'
 import React, {useState, ChangeEvent} from 'react'
 import TodoField from "@/components/ui/TodoField";
-import {TodoObject, TodoCategoryObject} from "@/types/Todo";
 import useCategories from "@/hook/useCategory";
 import useAddTodo from "@/hook/useAddTodo";
 import Loading from "@/components/ui/Loading";
@@ -10,6 +9,7 @@ import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {revalidatePath} from "next/cache";
 import {useRouter} from "next/navigation";
+import {TodoObject as TodoType, TodoCategoryObject as CategoryType} from "@/types/Todo"
 
 
 const schema = yup
@@ -23,20 +23,18 @@ const schema = yup
 
 
 const AddTodo = () => {
-    let editValues = {};
 
-    const router = useRouter();
-
-    const [todo, setTodo] = useState({
+    let editValues: any = {};
+    const [todo, setTodo] = useState<TodoType | null>({
         value: "",
         desc: "",
         done: false,
         category: "",
     });
+    const router = useRouter();
 
-    const [isLoading, setIsloading] = useState(false);
-    const {categories} = useCategories();
-    const {createTodo, isCreating} = useAddTodo();
+    const {categories}: { categories: CategoryType[] } = useCategories();
+    const {createTodo, isCreating}:{isCreating:boolean,createTodo:any} = useAddTodo();
 
 
     const {

@@ -21,8 +21,8 @@ function Singin() {
     handleSubmit,
     formState: { errors, isLoading },
   } = useForm({ resolver: yupResolver(schema), mode: "onTouched" });
-  const { signin } = useAuth();
-  const onSubmit = async (values) => {
+  const { signin }:any = useAuth();
+  const onSubmit = async (values:any) => {
     await signin(values);
   };
 

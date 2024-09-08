@@ -5,7 +5,10 @@ import {CheckIcon, PencilSquareIcon, TrashIcon} from "@heroicons/react/16/solid"
 import {TodoComponentItem} from "@/types/Todo";
 
 
-const TodoCom = ({isPendingChangeStatus, todo, setIsEdite, setIsDelete, handleChangeStatus}: TodoComponentItem) => {
+const TodoCom = (
+    {isPendingChangeStatus, todo, setIsEdite, setIsDelete, handleChangeStatus}
+        : TodoComponentItem
+) => {
     return (
         <div className={"flex flex-row align-middle justify-start items-center text-right p-0.5 my-1"}>
             {isPendingChangeStatus ? (

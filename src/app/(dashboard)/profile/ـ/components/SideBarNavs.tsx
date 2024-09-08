@@ -9,6 +9,7 @@ import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+
 const sidebarNavs = [
   {
     id: 1,
@@ -44,7 +45,7 @@ export default function SideBarNavs() {
                 "flex items-center gap-x-2 rounded-2xl font-medium hover:text-primary-900 transition-all duration-200 text-secondary-700 py-3 px-4",
                 {
                   "bg-primary-100/40 !font-bold text-primary-900":
-                    router.pathname === nav.href,
+                    router?.pathname === nav.href,
                 }
               )}
             >

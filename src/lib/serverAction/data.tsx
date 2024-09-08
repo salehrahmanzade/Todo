@@ -6,7 +6,7 @@ import setCookiesOnReq from "@/utils/setCookieOnReq";
 import { cookies } from "next/headers";
 
 
-export interface dataPromise {
+ interface dataPromise {
   users: [],
   todos: [],
 }

@@ -18,3 +18,10 @@ export interface TodoComponentItem {
     setIsEdite(v:boolean): void,
     setIsDelete(v:boolean): void,
 }
+
+
+export interface CategoryType {
+    title: string,
+    slug: string,
+    _id : string
+}

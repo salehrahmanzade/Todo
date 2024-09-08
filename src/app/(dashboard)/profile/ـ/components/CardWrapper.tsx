@@ -1,4 +1,4 @@
-import { fetchCardData } from "@/lib/data";
+import { fetchCardData } from "@/lib/serverAction/data";
 import { Card } from "./Cards";
 
 async function CardWrapper() {

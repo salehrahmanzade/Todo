@@ -2,6 +2,7 @@ import {createTodoApi, getAllTodoApi,editTodoApi,deleteTodoApi} from "@/httpServ
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {toast} from "react-hot-toast";
 
+
 export default function useAddTodo() {
     const queryClient = useQueryClient();
 
@@ -15,7 +16,7 @@ export default function useAddTodo() {
         },
         onError: (err) => toast.error(err?.response?.data?.message),
     });
-    return {isCreating, createTodo};
+    return {isCreating, createTodo}
 }
 
 export function useEditeTodo() {
