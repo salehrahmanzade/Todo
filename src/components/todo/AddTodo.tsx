@@ -1,7 +1,7 @@
 'use client'
 import React, {useState, ChangeEvent} from 'react'
 import TodoField from "@/components/ui/TodoField";
-import {TodoObject, TodoCategoryObject} from "@/models/Todo";
+import {TodoObject, TodoCategoryObject} from "@/types/Todo";
 import useCategories from "@/hook/useCategory";
 import useAddTodo from "@/hook/useAddTodo";
 import Loading from "@/components/ui/Loading";
@@ -10,6 +10,7 @@ import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {revalidatePath} from "next/cache";
 import {useRouter} from "next/navigation";
+
 
 const schema = yup
     .object({

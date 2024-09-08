@@ -1,7 +1,7 @@
 "use server"
 
-import { getAllUsersApi } from "@/services/authService";
-import { getAllTodoApi } from "@/services/todoService";
+import { getAllUsersApi } from "@/httpServices/authService";
+import { getAllTodoApi } from "@/httpServices/todoService";
 import setCookiesOnReq from "@/utils/setCookieOnReq";
 import { cookies } from "next/headers";
 

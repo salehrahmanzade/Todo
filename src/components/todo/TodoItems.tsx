@@ -9,9 +9,9 @@ import {useRouter} from "next/navigation";
 import Loading from "@/components/ui/Loading";
 import {useWithSound} from "@/hook/useWithSound";
 import TodoCom from "@/components/com/TodoCom";
+import {TodoObject as TodoType} from "@/types/Todo"
 
-
-const TodoItems = ({todo = {}}) => {
+const TodoItems = ({todo = {}}:{todo:TodoType}) => {
 
     const router = useRouter();
     const [isDelete, setIsDelete] = useState(false);
@@ -27,6 +27,8 @@ const TodoItems = ({todo = {}}) => {
                 router.refresh();
             }
         });
+        setIsDelete(false);
+        router.refresh();
     }
     const handleChangeStatus = async () => {
         let doneStatus = todo.done;

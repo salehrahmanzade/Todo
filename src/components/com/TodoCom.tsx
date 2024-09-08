@@ -2,7 +2,7 @@ import React from 'react';
 import Loading from "@/components/ui/Loading";
 import {Checkbox} from "@headlessui/react";
 import {CheckIcon, PencilSquareIcon, TrashIcon} from "@heroicons/react/16/solid";
-import {TodoComponentItem} from "@/models/Todo";
+import {TodoComponentItem} from "@/types/Todo";
 
 
 const TodoCom = ({isPendingChangeStatus, todo, setIsEdite, setIsDelete, handleChangeStatus}: TodoComponentItem) => {

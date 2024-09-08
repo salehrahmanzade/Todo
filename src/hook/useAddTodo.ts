@@ -1,4 +1,4 @@
-import {createTodoApi, getAllTodoApi,editTodoApi,deleteTodoApi} from "@/services/todoService";
+import {createTodoApi, getAllTodoApi,editTodoApi,deleteTodoApi} from "@/httpServices/todoService";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import {toast} from "react-hot-toast";
 

@@ -1,6 +1,9 @@
+import {OptionHttpObject} from "@/types/http";
+
+
 export default function setCookiesOnReq(cookies) {
   // cookies get from => 1. const cookies = cookies() OR 2: req.cookies
-  const options = {
+  const options:OptionHttpObject = {
     headers: {
       Cookie:
         `${cookies.get("accessToken")?.name}=${

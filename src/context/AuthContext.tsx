@@ -4,21 +4,34 @@ import {
   logoutApi,
   signupApi,
   singinApi,
-} from "@/services/authService";
+} from "@/httpServices/authService";
 import { useRouter } from "next/navigation";
-import { createContext, useContext, useEffect, useReducer } from "react";
+import React,{ createContext, useContext, useEffect, useReducer } from "react";
 import toast from "react-hot-toast";
 
-const AuthContext = createContext();
 
-const initialState = {
-  user: null,
+const AuthContext = createContext(null);
+
+type initialStateType = {
+  user?: {},
+  isAuthenticated?: boolean,
+  isLoading?: boolean,
+  error?: string,
+};
+type actionType = {
+  type :string,
+  payload : any
+}
+
+
+const initialState:initialStateType = {
+  user: {},
   isAuthenticated: false,
   isLoading: true,
-  error: null,
+  error: "",
 };
 
-function authReducer(state, action) {
+function authReducer(state:initialStateType, action:actionType) {
   switch (action.type) {
     case "loading":
       return {
@@ -56,12 +69,15 @@ function authReducer(state, action) {
   }
 }
 
-export default function AuthProvier({ children }) {
+export default function AuthProvier({ children }:{children : React.ReactNode}) {
+
   const router = useRouter();
+
   const [{ user, isAuthenticated, isLoading }, dispatch] = useReducer(
     authReducer,
     initialState
   );
+
   async function signin(values) {
     dispatch({ type: "loading" });
     try {

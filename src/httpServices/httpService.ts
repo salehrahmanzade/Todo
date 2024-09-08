@@ -1,4 +1,5 @@
-import axios from "axios";
+
+import axios, { AxiosResponse, AxiosRequestConfig, RawAxiosRequestHeaders } from 'axios';
 
 const app = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -10,6 +11,10 @@ app.interceptors.request.use(
   (err) => Promise.reject(err)
 );
 
+const config: AxiosRequestConfig = {
+    withCredentials :true
+};
+
 app.interceptors.response.use(
   (res) => res,
   async (err) => {
@@ -17,10 +22,10 @@ app.interceptors.response.use(
     if (err.response.status === 401 && !originalConfig._retry) {
       originalConfig._retry = true;
       try {
-        const { data } = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/user/refresh-token`,
-          { withCredentials: true }
-        );
+          const {data}: AxiosResponse = await axios.get(
+              `${process.env.NEXT_PUBLIC_API_URL}/user/refresh-token`,
+              config
+          );
         if (data) return app(originalConfig);
       } catch (error) {
         return Promise.reject(error);

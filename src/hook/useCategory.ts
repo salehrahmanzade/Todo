@@ -1,4 +1,4 @@
-import { getCategoryApi } from "@/services/categoryServie";
+import { getCategoryApi } from "@/httpServices/categoryServie";
 import { useQuery } from "@tanstack/react-query";
 
 export default function useCategories() {

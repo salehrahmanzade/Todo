@@ -1,4 +1,4 @@
-import {OptionHttpObject} from "@/models/http";
+import {OptionHttpObject} from "@/types/http";
 
 
 function fetchApi(url: string, options: any) {

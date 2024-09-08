@@ -2,7 +2,8 @@ export interface TodoObject {
     value: string,
     done: boolean,
     category?: string,
-    desc?: string
+    desc?: string,
+    _id?:string
 }
 
 export interface TodoCategoryObject {
